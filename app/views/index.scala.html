@@ -1,0 +1,49 @@
+@(platosespeciales: java.util.List[Platose])
+<html>
+	<head>
+	
+	
+	
+	</head>
+	<body>
+	<title>PLATOS ESPECIALES</title>
+	<table border=1>
+	<tr>
+		<td>Nombre </td>
+		<td>categoria </td>
+		<td>costo </td>
+		<td>Fecha Elaboracion</td>
+		<td>Fecha Vencimiento</td>
+		
+		
+	</tr>
+	@for(platose <- platosespeciales){
+	<tr>
+		<td>@platose.name</td>
+		<td>@platose.categoria</td>
+		<td>@platose.costo</td>
+		<td>
+		@if(platose.introduced == null){
+		<em>-</em>		
+		} else {
+		@platose.introduced.format("dd MMM yyy")
+		}
+		
+		</td>
+		<td>
+		@if(platose.discontinued == null){
+		<em>-</em>		
+		}else{
+		@platose.discontinued.format("dd MMM yyy")
+		}
+		</td>
+		
+	</tr>
+	}
+	
+	
+	</table>
+	
+	</body>
+
+</html>
